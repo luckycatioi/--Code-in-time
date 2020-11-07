@@ -3,7 +3,7 @@
     font-size: 15px;
 }
 .bg {
-    background: url('timg2.jpg');
+    background: url('timg.jpg');
     height:900px;
     text-align: center;
     line-height: 600px;
@@ -24,17 +24,5 @@
   position:absolute;
   left: 10px;
   right: 10px;
-  height:20px;
-  line-height: 30px;
   text-align: center;
-}
-
-.hh{
-    color: #ffffff;
-    font-size: 25px;
-}
-.but{
-    margin-right: 93px;
-    width:96px;
-    height:24px;
 }
