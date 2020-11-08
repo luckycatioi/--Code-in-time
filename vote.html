@@ -4,7 +4,7 @@
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>投票内容</title>
-    <link rel="stylesheet" type="text/css" href="投票页面.css">
+    <link rel="stylesheet" type="text/css" href="vote.css">
 
 
 </head>
@@ -125,7 +125,7 @@
         $.get( "http://127.0.0.1:8000/polls/"+JSON.stringify(data)+"/update/", function(result){
         	if(result=="sucess"){
         		alert("投票成功")
-        		window.location.href="投票结果.html"
+        		window.location.href="vote_result.html"
         	}else if(result=="already_vote")
         	{
         		alert("请勿重复投票")
