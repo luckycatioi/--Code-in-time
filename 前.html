@@ -89,4 +89,33 @@
             </div>
         </div>
 </body>
+
+<script type="text/javascript">
+ 
+	//在每个投票选项后面写了个div，用div的宽度来代表当前该选项的投票数。
+	function vote(){	//函数vote，当点击确认投票的时候，调用vote方法
+		
+        var nam;
+        var url=window.location.search; //获取url中"?"符后的字串
+        nam=url.substr(url.indexOf("?")+1);
+        //document.write(nam);
+
+        var result = new Array();
+		//for循环的条件是，所有投票选项的个数。
+		for(var i = 0; i < document.getElementsByName("CheckboxGroup1").length; i++){
+			
+			//查找到是哪个投票选项被选中
+			if(document.getElementsByName("CheckboxGroup1")[i].checked == true){
+                result.push(i+1);
+			}
+		}
+        //document.write(result);
+        var data = {"name": nam,"vote": result};
+        //document.write(data);
+        //console.log(data)
+		alert("投票成功");
+		
+	}
+ 
+</script>
 </html>
