@@ -195,7 +195,7 @@
 //              httpRequest.send();//第三步：发送请求  将请求参数写在URL中
  				//var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
  				$.ajaxSettings.async = false;
-				$.get("http://127.0.0.1:8000/polls/"+i+"/vote/", function(width){
+				$.get("http://poll.luckycat.io:8000/polls/"+i+"/vote/", function(width){
          
 //            		alert(width);
               		var width_int = parseInt(width);

@@ -39,7 +39,7 @@
 //					alert("ss")
 					var b=confirm("是否清空数据")//按确认和取消输出不同的内容
                 if(b==true){
-                    	$.get("http://127.0.0.1:8000/polls/clear_all/")
+                    	$.get("http://poll.luckycat.io:8000/polls/clear_all/")
                     	alert("清除成功")
 //             
 											location.reload();
@@ -51,7 +51,7 @@
                 //var data = {"name": nam,"vote": result};
      	          var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
      	          var json;
-     	          $.get("http://127.0.0.1:8000/polls/get_all_people/", function(data){
+     	          $.get("http://poll.luckycat.io:8000/polls/get_all_people/", function(data){
 	      					json=data;
 	      					var obj = JSON.parse(json);
                   console.log(obj)
