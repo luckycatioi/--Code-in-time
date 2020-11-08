@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>js点击弹窗弹出登录框代码</title>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>js点击弹窗弹出登录框代码</title>
 </head>
 <body>
 
@@ -57,9 +58,13 @@
 
 <script language="javascript" type="text/javascript">
     function jump(){
+		var getval;  
 		if(document.getElementById("inpt").value!="")
-			if(!isNaN(document.getElementById("inpt").value))
-				window.location.href="前.html";
+			if(!isNaN(document.getElementById("inpt").value)){
+				getval = document.getElementById("inpt").value;
+				document.write(getval);
+				window.location.href="前.html?"+getval;
+			}
 			else
 				window.alert("请输入正确的学号");
 		else
