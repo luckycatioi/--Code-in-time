@@ -177,16 +177,11 @@
 					<label id="label10">0</label>票
 				</td>
 			</tr>
-
-
-			
-
-			
 		</table>
 	</div>
 </body>
 <script type="text/javascript">
- 
+  var data={}
 	//在每个投票选项后面写了个div，用div的宽度来代表当前该选项的投票数。
 	function vote(){	//函数vote，当点击确认投票的时候，调用vote方法
 		
@@ -205,10 +200,9 @@
 				document.getElementById(label).innerText = ++num;//票数加1，并修改原值
 			}
 		}
- 
-		//alert("投票成功");
-		
 	}
- 
+ // 50 60 70 80 90 100 110 120 130 140 150  127.0.0.1:8000/polls/get_all_people/
+
+
 </script>
 </html>

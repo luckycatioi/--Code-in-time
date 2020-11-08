@@ -113,6 +113,7 @@
         var data = {"name": nam,"vote": result};
         //document.write(data);
         //console.log(data)
+        $.get( "127.0.0.1:8000/polls/"+JSON.stringify(data)+"/get_all_people/",callback);
 		if(result!=""){
             alert("投票成功");
             window.location.href="投票结果.html"
