@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="投票结果.css">
+<title>投票结果</title>
+</head>
+ <body>
+    <div class="bg blur"></div>
+	<div  class= "content-front text" >
+	<h4>投票结果</h4>
+	
+		<table id="main" >
+			<tr >
+				<td>
+					<div type="radio" name="option" checked="checked"/>第一组</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:550px">
+					<div id=1 style="background-color:#317cc7; width:0; height:30px; border-width:0px;">
+					</div>
+				</td>
+				<td>
+					<label id="label0">0</label>票
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div type="radio" name="option"  />第二组</div>
+				</td>
+			</tr>
+			<tr >
+				<td>
+					<div id=2 style="background-color:#0066cc; height:30px; width:0; border-width:0px; border-color:blue; border-style:solid ; text-align:right;" ></div>
+					
+				</td>
+				<td>
+				<label id="label1">0</label>票
+				</td>
+			</tr>	
+			<tr >
+				<td>
+					<div type="radio" name="option"  />第三组</div>
+				</td>
+			</tr>
+			<tr >
+				<td>
+					<div id=3 style="background-color:#a14141; height:30px;width:0;  border-width:0px; border-color:blue; border-style:solid ; text-align:right;" ></div>
+					
+				</td>
+				<td>
+				<label id="label2">0</label>票
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<div type="radio" name="option" />第四组</div>
+				</td>
+			</tr>
+			<tr >
+				<td>
+					<div id=4 style="background-color:#5cadad;height:30px;width:0; border-width:0px; border-color:blue; border-style:solid ; text-align:right;" ></div>
+					
+				</td>
+				<td>
+				<label id="label3">0</label>票
+				</td>
+			</tr>
+		
+			<tr >
+				<td>
+					<div type="radio" name="option" checked="checked"/>第五组</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:550px">
+					<div id=5 style="background-color:#812672; width:0; height:30px; border-width:0px;">
+					</div>
+				</td>
+				<td>
+					<label id="label4">0</label>票
+				</td>
+			</tr>
+
+
+			<tr >
+				<td>
+					<div type="radio" name="option" checked="checked"/>第六组</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:550px">
+					<div id=6 style="background-color:#c04f88; width:0; height:30px; border-width:0px;">
+					</div>
+				</td>
+				<td>
+					<label id="label5">0</label>票
+				</td>
+			</tr>
+
+
+			<tr >
+				<td>
+					<div type="radio" name="option" checked="checked"/>第七组</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:550px">
+					<div id=7 style="background-color:#89c936; width:0; height:30px; border-width:0px;">
+					</div>
+				</td>
+				<td>
+					<label id="label6">0</label>票
+				</td>
+			</tr>
+
+
+			<tr >
+				<td>
+					<div type="radio" name="option" checked="checked"/>第八组</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:550px">
+					<div id=8 style="background-color:#b8932d; width:0; height:30px; border-width:0px;">
+					</div>
+				</td>
+				<td>
+					<label id="label7">0</label>票
+				</td>
+			</tr>
+
+
+			<tr >
+				<td>
+					<div type="radio" name="option" checked="checked"/>第九组</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:550px">
+					<div id=9 style="background-color:#081522; width:0; height:30px; border-width:0px;">
+					</div>
+				</td>
+				<td>
+					<label id="label8">0</label>票
+				</td>
+			</tr>
+
+
+			<tr >
+				<td>
+					<div type="radio" name="option" checked="checked"/>第十组</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:550px">
+					<div id=10 style="background-color:#106186; width:0; height:30px; border-width:0px;">
+					</div>
+				</td>
+				<td>
+					<label id="label9">0</label>票
+				</td>
+			</tr>
+
+
+			<tr >
+				<td>
+					<div type="radio" name="option" checked="checked"/>第十一组</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:550px">
+					<div id=11 style="background-color:#520827; width:0; height:30px; border-width:0px;">
+					</div>
+				</td>
+				<td>
+					<label id="label10">0</label>票
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+</body>
+<script type="text/javascript">
+	//在每个投票选项后面写了个div，用div的宽度来代表当前该选项的投票数。
+		//函数vote，当点击确认投票的时候，调用vote方法
+		//for循环的条件是，所有投票选项的个数。
+	var width;
+	for(var i = 1; i <= document.getElementsByName("option").length; i++){
+//			var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+//              httpRequest.open('GET', 'http://127.0.0.1:8000/polls/'+i+'/vote/', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+//              httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+ 				//var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+ 				$.ajaxSettings.async = false;
+				$.get("http://127.0.0.1:8000/polls/"+i+"/vote/", function(width){
+         
+//            		alert(width);
+              		var width_int = parseInt(width);
+              		
+              		var z=i-1;
+                	document.getElementById(i).style.width = width_int*20+"px";//修改原div的宽度
+                	$("#label"+z).text(width_int);
+               })
+//              document.getElementById(1).style.width = width+"px";//修改原div的宽度
+			// var width_ = document.getElementById(i).style.width;	//获取到当前选项的宽度。
+			// width_ = parseInt(width_);//将宽度转化为int型，因为获取到的width的单位是px
+			// width_ = width_ + width * 3;//改变width的值，这里就是定义每次投票的进度条的增速
+			//document.getElementById(1).style.width = width+"px";//修改原div的宽度
+	}
+ // 50 60 70 80 90 100 110 120 130 140 150  127.0.0.1:8000/polls/get_all_people/
+
+
+</script>
+</html>

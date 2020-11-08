@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>投票内容</title>
+    <link rel="stylesheet" type="text/css" href="投票页面.css">
+
+
+</head>
+<body>
+        <div class="bg blur"></div>
+
+        <div class="content-front">
+                <h2 class="hh">这是投票的标题</h2>
+            <div id="vote"  class="text">
+                <center>
+                <table>
+                    <tr>
+                        <td>发布人：第八组</td>
+                        <td>发布时间：2020-11-7</td>
+                    </tr>
+                </table>
+                <center>
+                <div id="vote_intro">
+                    请投出您所喜欢的小组吧！
+                </div>
+                <div id="vote_contend">
+                    <!--显示框-->
+                    <form id="form1" name="form1" method="post" action="">
+                        <table>
+                            <tr>
+                                <td>最多选择10项，最少选择1项</td>
+                            </tr>
+                            <tr id="group_1">
+                                <td><label><input type="checkbox" name="CheckboxGroup1" value="item"
+                                            id="1" />第一组</label></td>
+                            </tr>
+                            <tr id="group_2">
+                                <td><label><input type="checkbox" name="CheckboxGroup1" value="item"
+                                            id="2" />第二组</label></td>
+                            </tr>
+                            <tr id="group_3">
+                                <td><label><input type="checkbox" name="CheckboxGroup1" value="item"
+                                            id="3" />第三组</label></td>
+                            </tr>
+                            <tr id="group_4">
+                                <td><label><input type="checkbox" name="CheckboxGroup1" value="item"
+                                            id="4" />第四组</label></td>
+                            </tr>
+                            <tr id="group_5">
+                                <td><label><input type="checkbox" name="CheckboxGroup1" value="item"
+                                            id="5" />第五组</label></td>
+                            </tr>
+                            <tr id="group_6">
+                                <td><label><input type="checkbox" name="CheckboxGroup1" value="item"
+                                            id="6" />第六组</label></td>
+                            </tr>
+                            <tr id="group_7">
+                                <td id="test"><label><input type="checkbox" name="CheckboxGroup1" value="item"
+                                            id="7" />第七组</label></td>
+                            </tr>
+                            <tr id="group_8">
+                                <td><label><input type="checkbox" name="CheckboxGroup1" value="item"
+                                            id="8" />第八组</label></td>
+                            </tr>
+                            <tr id="group_9">
+                                <td><label><input type="checkbox" name="CheckboxGroup1" value="item"
+                                            id="9" />第九组</label></td>
+                            </tr>
+                            <tr id="group_10">
+                                <td><label><input type="checkbox" name="CheckboxGroup1" value="item"
+                                            id="10" />第十组</label></td>
+                            </tr>
+                            <tr id="group_11">
+                                <td><label><input type="checkbox" name="CheckboxGroup1" value="item"
+                                            id="11" />第十一组</label></td>
+                            </tr>
+                            <tr>
+                                <td><input class="button1" type="button" onclick="vote()"  value="确定投票" /></td>
+                            </tr>
+                            
+                        </table>
+                    </form>
+                    <script>
+                        var zuhao;
+                        var url=window.location.search;
+                        zuhao=url.substr(url.indexOf("/")+1);
+                        var test = "group_"+zuhao
+                        $("#"+test).hide();
+                    </script>
+                    <!--显示框(结束)-->
+                </div>
+            </div>
+            <!--主体内容结束-->
+            <!--<button class="but" onclick="window.location.href='投票结果.html'">结果查询</button>-->
+            </div>
+        </div>
+</body>
+
+<script type="text/javascript">
+	//在每个投票选项后面写了个div，用div的宽度来代表当前该选项的投票数。
+	function vote(){	//函数vote，当点击确认投票的时候，调用vote方法
+		
+        var nam;
+        var url=window.location.search; //获取url中"?"符后的字串
+        nam=url.slice(url.indexOf("?")+1,url.indexOf("/"));
+        zuhao=url.substr(url.indexOf("/")+1)
+        //console.log(nam);
+        //console.log(zuhao);
+
+
+        var result = new Array();
+		//for循环的条件是，所有投票选项的个数。
+		for(var i = 0; i < document.getElementsByName("CheckboxGroup1").length; i++){
+			
+			//查找到是哪个投票选项被选中
+			if(document.getElementsByName("CheckboxGroup1")[i].checked == true){
+                result.push(i+1);
+			}
+		}
+        //document.write(result);
+
+        var data = {"name": nam,"vote": result};
+        $.get( "http://127.0.0.1:8000/polls/"+JSON.stringify(data)+"/update/", function(result){
+        	if(result=="sucess"){
+        		alert("投票成功")
+        		window.location.href="投票结果.html"
+        	}else if(result=="already_vote")
+        	{
+        		alert("请勿重复投票")
+        	}
+        	else{
+        		alert("error")
+        	}
+        })
+
+        //document.write(data);
+        //console.log(data)
+		// alert("test")
+        // alert(JSON.stringify(data))
+       
+		// var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+        // httpRequest.open('GET', 'http://127.0.0.1:8000/polls/get_all_people/', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        // httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+ 
+        // httpRequest.onreadystatechange = function () {
+        // 	//alert("get_data")
+        //     var json = httpRequest.responseText;//获取到json字符串，还需解析
+        //     console.log(json);
+        //     alert(json)
+            
+        // };
+        // alert("send")
+		
+	}
+ 
+</script>
+</html>

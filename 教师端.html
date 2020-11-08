@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  	 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  	 <script type="text/javascript" src="https://unpkg.com/vue"></script>
+      <meta charset="UTF-8">
+      <title></title>
+      <link rel="stylesheet" type="text/css" href="教师端.css">
+
+ </head>
+ <body>
+        <div class="bg blur"></div>
+        <div  class= "content-front text" >
+        <input class="button" type="submit" onclick="plays()"  value="查看结果" />
+     <input class="button" type="submit" onclick="clear_all()"  value="清除数据" />
+       <table id="table" style="margin-left: auto; margin-right:auto;">
+       	 <tr>
+          <th>学号</th>
+        <th>所投组数</th>
+        </tr>
+        </table>
+        <!--<tr>
+        	<div id="vue-app">
+
+   				<p>{{name}}<p>  // 绑定name这个数据
+				
+
+				</div>-->
+<!--         </tr>
+-->      </div>
+ </body>
+ <script>
+//				var vm = new Vue({
+//				    el:"vue-app",
+//				    
+//				})
+				function clear_all(){
+//					alert("ss")
+					var b=confirm("是否清空数据")//按确认和取消输出不同的内容
+                if(b==true){
+                    	$.get("http://127.0.0.1:8000/polls/clear_all/")
+                    	alert("清除成功")
+//             
+											location.reload();
+                }
+				}
+        function plays(){
+        	      var nam;
+        	      var result = new Array();
+                //var data = {"name": nam,"vote": result};
+     	          var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+     	          var json;
+     	          $.get("http://127.0.0.1:8000/polls/get_all_people/", function(data){
+	      					json=data;
+	      					var obj = JSON.parse(json);
+                  console.log(obj)
+//                alert(obj[0].name);
+//              	alert(json);
+    							var table=document.getElementById("table");
+					    		for(var i=0;i<obj.length;i++){
+					        var row=table.insertRow(table.rows.length);
+					        var c1=row.insertCell(0);
+					        c1.innerHTML=obj[i].name;
+					        var c2=row.insertCell(1);
+					        c2.innerHTML=obj[i].vote;
+                }
+      })
+    }
+
+        
+                
+            
+     </script>
+ </html>

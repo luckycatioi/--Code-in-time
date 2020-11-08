@@ -1,0 +1,44 @@
+.text {
+    color: #f7e0e0;
+    font-size: 15px;
+}
+.bg {
+    background: url('timg2.jpg');
+    height:900px;
+    text-align: center;
+    line-height: 600px;
+}
+.blur {
+    float: left;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+}
+.content-front {
+  position:absolute;
+  left: 10px;
+  right: 10px;
+  height:20px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.hh{
+    color: #ffffff;
+    font-size: 25px;
+}
+.but{
+    margin-right: 93px;
+    width:96px;
+    height:24px;
+}
+.button1{
+    width:96px;
+    height:24px;
+}
