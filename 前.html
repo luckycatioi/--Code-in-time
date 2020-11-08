@@ -76,7 +76,7 @@
                                             id="11" />第十一组</label></td>
                             </tr>
                             <tr>
-                                <td><input type="submit" /> <input type="reset" /></td>
+                                <td><input class="button1" type="button" onclick="vote()"  value="确定投票" /></td>
                             </tr>
                             
                         </table>
@@ -113,8 +113,13 @@
         var data = {"name": nam,"vote": result};
         //document.write(data);
         //console.log(data)
-		alert("投票成功");
-		
+		if(result!=""){
+            alert("投票成功");
+            window.location.href="投票结果.html"
+        }
+        else
+            alert("请投票！");
+
 	}
  
 </script>
